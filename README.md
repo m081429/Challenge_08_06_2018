@@ -1,6 +1,7 @@
 Challenge_08_06_2018
 
 REQUIREMENTS
+
 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple
 possibilities, annotate with the most deleterious possibility.
 2. Depth of sequence coverage at the site of variation.
@@ -11,8 +12,10 @@ possibilities, annotate with the most deleterious possibility.
 6. Additional optional information from ExAC that you feel might be relevant.
 
 TASK: Writing a script to annotate a vcf file
-INPUT: VCF FILE
-OUTPUT: VCF FILE with new annotations
+
+INPUT FILE: VCF FILE
+
+OUTPUT FILE: VCF FILE with new annotations
 
 a)Python packages Required to run this script
 	1)os
@@ -54,6 +57,7 @@ c) Running the script "Run_challenge.sh"
 
 d)OUTPUT : 'Challenge_annotated_out.vcf'
 	Interpreting the output vcf "Challenge_annotated_out.vcf"
+	
 	Requirement 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
 	Added VEP most deleterious possibility through VEP API
 	"INFO=<ID=VEP_VARIANT_TYPE,Number=A,Type=String,Description="VEP VARIANT TYPE">"
