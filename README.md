@@ -1,6 +1,6 @@
-For this challenge, you are asked to prototype a variant annotation tool. We will provide you with
-a VCF file, and you will create a small software program to output a table annotating each
-variant in the file. Each variant must be annotated with the following pieces of information:
+Challenge_08_06_2018
+
+REQUIREMENTS
 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple
 possibilities, annotate with the most deleterious possibility.
 2. Depth of sequence coverage at the site of variation.
@@ -9,14 +9,12 @@ possibilities, annotate with the most deleterious possibility.
 5. Allele frequency of variant from Broad Institute ExAC Project API
 (API documentation is available here: http://exac.hms.harvard.edu/)
 6. Additional optional information from ExAC that you feel might be relevant.
-For this project please upload all relevant code (written in whatever language you like) along
-with the annotated VCF file to a Github account and provide the link to the below email address.
-Please note that work will be assessed based on quality of code and documentation more-so
-than the annotation.
-Please direct any queries to Stephen Bush (stephen.bush@.com).
 
+TASK: Writing a script to annotate a vcf file
+INPUT: VCF FILE
+OUTPUT: VCF FILE with new annotations
 
-a)Python packages Required to run the script
+a)Python packages Required to run this script
 	1)os
 	2)argparse
 	3)sys
