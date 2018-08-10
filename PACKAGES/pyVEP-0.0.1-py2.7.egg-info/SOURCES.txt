@@ -1,0 +1,7 @@
+README.md
+pyVEP/__init__.py
+pyVEP.egg-info/PKG-INFO
+pyVEP.egg-info/SOURCES.txt
+pyVEP.egg-info/dependency_links.txt
+pyVEP.egg-info/requires.txt
+pyVEP.egg-info/top_level.txt

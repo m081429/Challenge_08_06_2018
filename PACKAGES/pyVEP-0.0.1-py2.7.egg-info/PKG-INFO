@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: pyVEP
+Version: 0.0.1
+Summary: Python interface to Variant Effect Predictor
+Home-page: https://github.com/kantale/pyVEP
+Author: Alexandros Kanterakis
+Author-email: alexandros.kanterakis@gmail.com
+License: MIT
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
