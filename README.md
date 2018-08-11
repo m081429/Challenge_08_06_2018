@@ -1,6 +1,6 @@
 #Challenge_08_06_2018
 
-##REQUIREMENTS
+## REQUIREMENTS
 
 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple
 possibilities, annotate with the most deleterious possibility.
@@ -11,13 +11,13 @@ possibilities, annotate with the most deleterious possibility.
 (API documentation is available here: http://exac.hms.harvard.edu/)
 6. Additional optional information from ExAC that you feel might be relevant.
 
-###TASK: Writing a script to annotate a vcf file
+### TASK: Writing a script to annotate a vcf file
 
-###INPUT FILE: VCF FILE ("Challenge_data.vcf")
+### INPUT FILE: VCF FILE ("Challenge_data.vcf")
 
-###OUTPUT FILE: VCF FILE with new annotations ("Challenge_annotated_out.vcf")
+### OUTPUT FILE: VCF FILE with new annotations ("Challenge_annotated_out.vcf")
 
-###a)Python packages Required to run this script
+### a)Python packages Required to run this script
 	1)os
 	2)argparse
 	3)sys
@@ -29,7 +29,7 @@ possibilities, annotate with the most deleterious possibility.
 	9)pyVEP
 	10)requests
 
-###b)SET UP	
+### b)SET UP	
 	Setup script to install pyVEP package "Challenge_setup.sh"
 	cat Challenge_setup.sh
 	set -x
@@ -47,7 +47,7 @@ possibilities, annotate with the most deleterious possibility.
 	rm -rf pyVEP/
 
 
-###c) Running the script "Run_challenge.sh"
+### c) Running the script "Run_challenge.sh"
 	cat Run_challenge.sh
 	PYTHON=python
 	#setting the PYTHON PACKAGE DIRECTORY
@@ -55,29 +55,29 @@ possibilities, annotate with the most deleterious possibility.
 	#RUNNING THE SCRIPT
 	$PYTHON Challenge.py -i Challenge_data.vcf -o Challenge_annotated_out.vcf
 
-###d)OUTPUT : 'Challenge_annotated_out.vcf'
+### d)OUTPUT : 'Challenge_annotated_out.vcf'
 	Interpreting the output vcf "Challenge_annotated_out.vcf"
 	
-	####Requirement 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
+#### 	Requirement 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
 	Added VEP most deleterious possibility through VEP API
 	"INFO=<ID=VEP_VARIANT_TYPE,Number=A,Type=String,Description="VEP VARIANT TYPE">"
 	
-	####Requirement 2. Depth of sequence coverage at the site of variation.
+####	Requirement 2. Depth of sequence coverage at the site of variation.
 	Not additional coding is required 'DP' total depth is already present in the FORMAT field
 	
-	####Requirement 3. Number of reads supporting the variant.
+####	Requirement 3. Number of reads supporting the variant.
 	Not additional coding is required 'AO' reads supporting variant is already present in the FORMAT field
 	
-	####Requirement 4. Percentage of reads supporting the variant versus those supporting reference reads.
+####	Requirement 4. Percentage of reads supporting the variant versus those supporting reference reads.
 	Added new format field by extracting reads supporting variant and depth and calculated the percentage
 	"##FORMAT=<ID=VP,Number=1,Type=Float,Description="PERCENT NUMBER OF READS SUPPORTING VARIANT to TOTAL NUMBER OF VARIANTS">"
 	
-	####Requirement 5. Allele frequency of variant from Broad Institute ExAC Project API
+####	Requirement 5. Allele frequency of variant from Broad Institute ExAC Project API
 	(API documentation is available here: http://exac.hms.harvard.edu/)
 	Added new INFO fields EXAC POPULATION FREQUENCY
 	'##INFO=<ID=EXAC_POP_FREQ,Number=A,Type=String,Description="EXAC DATABASE POPULATION FREQ INFO(ORDER:ALL POP,European (Non-Finnish),East Asian,Other,African,Latino,South Asian,European (Finnish))">'
 	
-	####Requirement 6. Additional optional information from ExAC that you feel might be relevant.
+####	Requirement 6. Additional optional information from ExAC that you feel might be relevant.
 	Added new INFO fields EXAC DBSNP RSID, EXAC VARIANT SITE QUALITY SCORE and EXAC VARIANT FILTER VALUE
 	'##INFO=<ID=EXAC_RSID,Number=A,Type=String,Description="EXAC DATABASE RSID INFO">'
 	'##INFO=<ID=EXAC_SITE_QUALITY,Number=A,Type=String,Description="EXAC DATABASE SITE QUALITY INFO">'
