@@ -13,9 +13,9 @@ possibilities, annotate with the most deleterious possibility.
 
 TASK: Writing a script to annotate a vcf file
 
-INPUT FILE: VCF FILE
+INPUT FILE: VCF FILE ("Challenge_data.vcf")
 
-OUTPUT FILE: VCF FILE with new annotations
+OUTPUT FILE: VCF FILE with new annotations ("Challenge_annotated_out.vcf")
 
 a)Python packages Required to run this script
 	1)os
