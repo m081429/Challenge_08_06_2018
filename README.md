@@ -1,21 +1,19 @@
-# Challenge_08_06_2018
+# Sample python script
 
-## REQUIREMENTS
+# This script is written in python2 and annotates the input vcf file with
 
-1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple
-possibilities, annotate with the most deleterious possibility.
+1. Annotates with the most deleterious possibility.
 2. Depth of sequence coverage at the site of variation.
 3. Number of reads supporting the variant.
 4. Percentage of reads supporting the variant versus those supporting reference reads.
 5. Allele frequency of variant from Broad Institute ExAC Project API
 (API documentation is available here: http://exac.hms.harvard.edu/)
-6. Additional optional information from ExAC that you feel might be relevant.
+6. Additional optional information from ExAC .
 
 ### TASK: Writing a script to annotate a vcf file
+### INPUT FILE: VCF FILE ("input.vcf")
+### OUTPUT FILE: VCF FILE with new annotations ("output_annotated.vcf")
 
-### INPUT FILE: VCF FILE ("Challenge_data.vcf")
-
-### OUTPUT FILE: VCF FILE with new annotations ("Challenge_annotated_out.vcf")
 
 ### a)Python packages Required to run this script
 	1)os
@@ -29,44 +27,31 @@ possibilities, annotate with the most deleterious possibility.
 	9)pyVEP
 	10)requests
 
-### b)SET UP	
-	Setup script to install pyVEP package "Challenge_setup.sh"
-	cat Challenge_setup.sh
-	set -x
-	PYTHON=/research/bsi/tools/biotools/python/2.7.10/bin/python
-	PIP=/research/bsi/tools/biotools/python/2.7.10/bin/pip
-	#create package directory
-	mkdir PACKAGES
-	#getting the source code
-	git clone https://github.com/kantale/pyVEP.git
-	tar -zcvf pyVEP.tar.gz pyVEP
-	#installing the package
-	$PIP install -t ./PACKAGES pyVEP.tar.gz
-	#clean up
-	rm pyVEP.tar.gz
-	rm -rf pyVEP/
+### b)SET UP : Installing the python package	
+	Setup script to install pyVEP package "setup.sh"
 
-
-### c) Running the script "Run_challenge.sh"
-	cat Run_challenge.sh
-	PYTHON=python
+### c) Running the script "run.sh"
+	cat run.sh
+	PYTHON=`which python`
 	#setting the PYTHON PACKAGE DIRECTORY
-	export PYTHONPATH=$PYTHONPATH:./PACKAGES/
+	export PYTHONPATH=$PYTHONPATH:./PACKAGES1/
+	#unit tests
+	$PYTHON Python_unittest.py
 	#RUNNING THE SCRIPT
-	$PYTHON Challenge.py -i Challenge_data.vcf -o Challenge_annotated_out.vcf
+	$PYTHON Python_sample.py -i input.vcf -o Annotated.vcf
 
-### d)OUTPUT : 'Challenge_annotated_out.vcf'
+### d)OUTPUT : 'Annotated.vcf'
 	Interpreting the output vcf "Challenge_annotated_out.vcf"
 	
-#### 	Requirement 1. Type of variation (Substitution, Insertion, Silent, Intergenic, etc.) If there are multiple possibilities, annotate with the most deleterious possibility.
+#### 	Requirement 1. Annotate with the most deleterious possibility.
 	Added VEP most deleterious possibility through VEP API
 	"INFO=<ID=VEP_VARIANT_TYPE,Number=A,Type=String,Description="VEP VARIANT TYPE">"
 	
 ####	Requirement 2. Depth of sequence coverage at the site of variation.
-	Not additional coding is required 'DP' total depth is already present in the FORMAT field
+	'DP' total depth is already present in the FORMAT field
 	
 ####	Requirement 3. Number of reads supporting the variant.
-	Not additional coding is required 'AO' reads supporting variant is already present in the FORMAT field
+	'AO' reads supporting variant is already present in the FORMAT field
 	
 ####	Requirement 4. Percentage of reads supporting the variant versus those supporting reference reads.
 	Added new format field by extracting reads supporting variant and depth and calculated the percentage
@@ -77,9 +62,10 @@ possibilities, annotate with the most deleterious possibility.
 	Added new INFO fields EXAC POPULATION FREQUENCY
 	'##INFO=<ID=EXAC_POP_FREQ,Number=A,Type=String,Description="EXAC DATABASE POPULATION FREQ INFO(ORDER:ALL POP,European (Non-Finnish),East Asian,Other,African,Latino,South Asian,European (Finnish))">'
 	
-####	Requirement 6. Additional optional information from ExAC that you feel might be relevant.
+####	Requirement 6. Additional information from ExAC
 	Added new INFO fields EXAC DBSNP RSID, EXAC VARIANT SITE QUALITY SCORE and EXAC VARIANT FILTER VALUE
 	'##INFO=<ID=EXAC_RSID,Number=A,Type=String,Description="EXAC DATABASE RSID INFO">'
 	'##INFO=<ID=EXAC_SITE_QUALITY,Number=A,Type=String,Description="EXAC DATABASE SITE QUALITY INFO">'
 	'##INFO=<ID=EXAC_FILTER_STATUS,Number=A,Type=String,Description="EXAC DATABASE FILTER STATUS INFO">'
 	
+###  Unit tests:Python_unittest.py
